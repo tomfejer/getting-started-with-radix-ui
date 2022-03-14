@@ -1,2 +1,3 @@
-# getting-started-with-radix-ui
-Created with CodeSandbox
+# Getting started with Radix UI
+
+![Getting started with Radix UI!](./thumbnail.gif "Getting started with Radix UI")
