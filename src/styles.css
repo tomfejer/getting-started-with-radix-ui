@@ -51,6 +51,20 @@ body,
   overflow: hidden;
 }
 
+.Header {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 13px;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .Sidebar {
   position: absolute;
   display: flex;
@@ -59,7 +73,7 @@ body,
   width: 260px;
   position: absolute;
   right: 0;
-  top: 0;
+  top: 40px;
   bottom: 0;
 
   border-inline-start: 1px solid rgba(255, 255, 255, 0.1);
@@ -231,8 +245,8 @@ body,
 
 .Switch {
   all: unset;
-  width: 42px;
-  height: 25px;
+  width: 34px;
+  height: 20px;
   background-color: rgba(255, 255, 255, 0.05);
   box-shadow: inset 0px 11px 11px rgba(0, 0, 0, 0.1),
     inset 0px 0px 1.5px rgba(255, 255, 255, 0.5);
@@ -261,8 +275,8 @@ body,
 
 .SwitchThumb {
   display: block;
-  width: 23px;
-  height: 23px;
+  width: 18px;
+  height: 18px;
   background-color: rgba(255, 255, 255, 0.85);
   border-radius: 9999px;
   box-shadow: inset 0px 0.5px 0.5px rgba(255, 255, 255, 0.33);
@@ -279,7 +293,7 @@ body,
 }
 
 .SwitchThumb[data-state="checked"] {
-  transform: translateX(18px);
+  transform: translateX(15px);
 }
 
 .SwitchWrapper {
@@ -354,7 +368,7 @@ body,
   align-items: center;
   justify-content: space-around;
 
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
 
   border-radius: 6px;
@@ -411,10 +425,11 @@ body,
   margin: 7px 0 0 0;
 }
 
-/* .HoverCard{
+.HoverCard {
   display: flex;
   justify-content: center;
-} */
+  margin: 0;
+}
 
 .HoverCardContent {
   display: flex;
@@ -424,20 +439,18 @@ body,
 
   border-radius: 6px;
   overflow: hidden;
-
 }
 
-div[data-radix-popper-content-wrapper]{
+div[data-radix-popper-content-wrapper] {
   border-radius: 6px;
   background-color: rgba(40, 40, 40, 0.7);
-  
+
   -webkit-backdrop-filter: blur(60px) saturate(210%);
   backdrop-filter: blur(60px) saturate(210%);
-  
+
   border: 0.5px solid rgba(0, 0, 0, 0.2);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2),
     0 8px 40px rgba(0, 0, 0, 0.55);
-
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -449,25 +462,28 @@ div[data-radix-popper-content-wrapper]{
   }
 }
 
+.HoverCardImage {
+  width: 200px;
+  height: 128px;
+  background-image: url("https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?&w=128&h=128&dpr=2&q=80");
 
-.HoverCardImage{
-width: 200px;
-height: 128px;
-background-image: url("https://source.unsplash.com/featured/?airplane");
-background-size: cover;
-border-radius: 0px;
-overflow: hidden;
-box-sizing: border-box;
-border-radius: 6px 6px 0 0;
+  background-size: cover;
+  border-radius: 0px;
+  overflow: hidden;
+  box-sizing: border-box;
+  border-radius: 6px 6px 0 0;
 
-border: 1px solid rgb(78, 78, 78);
-/* border-inline: 1px solid rgba(255, 255, 255, 0.1); */
-/* border-top: 1px solid rgba(255, 255, 255, 0.1); */
-/* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
-
+  border: 1px solid rgb(78, 78, 78);
+  /* border-inline: 1px solid rgba(255, 255, 255, 0.1); */
+  /* border-top: 1px solid rgba(255, 255, 255, 0.1); */
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
 }
 
-.HoverCardText{
+.HoverCardText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 0px; */
   color: rgba(255, 255, 255, 0.85);
   font-size: 13px;
   padding: 0 11px;
@@ -475,30 +491,77 @@ border: 1px solid rgb(78, 78, 78);
   max-width: 200px;
 }
 
-/* 
-    '&[data-state="open"]': {
-      '&[data-side="top"]': { animationName: slideDownAndFade },
-      '&[data-side="right"]': { animationName: slideLeftAndFade },
-      '&[data-side="bottom"]': { animationName: slideUpAndFade },
-      '&[data-side="left"]': { animationName: slideRightAndFade }, */
+.Avatar {
+  /* position: absolute;
+  right: 13px; */
 
-/* const slideUpAndFade = keyframes({
-  '0%': { opacity: 0, transform: 'translateY(2px)' },
-  '100%': { opacity: 1, transform: 'translateY(0)' },
-});
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  overflow: hidden;
+  user-select: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background-color: black;
+}
 
-const slideRightAndFade = keyframes({
-  '0%': { opacity: 0, transform: 'translateX(-2px)' },
-  '100%': { opacity: 1, transform: 'translateX(0)' },
-});
+.AvatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
 
-const slideDownAndFade = keyframes({
-  '0%': { opacity: 0, transform: 'translateY(-2px)' },
-  '100%': { opacity: 1, transform: 'translateY(0)' },
-});
+.ToastViewport {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+  gap: 10px;
+  width: 390px;
+  max-width: 100vw;
+  margin: 0;
+  list-style: none;
+  z-index: 2147483647;
+  outline: none;
+}
 
-const slideLeftAndFade = keyframes({
-  '0%': { opacity: 0, transform: 'translateX(2px)' },
-  '100%': { opacity: 1, transform: 'translateX(0)' },
-});
+.Toast {
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
+    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  padding: 15px;
+  display: grid;
+  grid-template-areas: "title action" "description action";
+  grid-template-columns: auto max-content;
+  column-gap: 15px;
+  align-items: center;
 
+  color: black;
+}
+
+.ToastTitle {
+  grid-area: "title";
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+button {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 12px;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.1);
+  font-size: 15px;
+  line-height: 1;
+  font-weight: 500;
+  height: 35px;
+}
